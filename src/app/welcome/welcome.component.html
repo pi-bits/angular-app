@@ -1,0 +1,7 @@
+<div data-qa-page="welcome-page">
+    <form [formGroup]="form" (ngSubmit) ='submit()'> 
+        <input  formControlName="caseId" type="text" id="caseSearch" data-qa="caseSearch" name="caseSearch" required minlength="1" maxlength="10"
+            size="10">
+        <input type="submit" data-qa="submit" value="Search">
+    </form>
+</div>
