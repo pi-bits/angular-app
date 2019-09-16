@@ -7,7 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { ApplicationDataComponent } from './application-data/application-data.component';
 import { DataServiceService } from './data-service.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Data } from './model/data';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatRadioModule} from '@angular/material/radio';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,11 @@ import { Data } from './model/data';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatRadioModule,
+    BrowserAnimationsModule
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]
