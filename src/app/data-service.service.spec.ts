@@ -6,7 +6,7 @@ import { Data } from './model/data';
 describe('DataServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
-  fit('should be update a new message', () => {
+  it('should be update a new message', () => {
     let _message: Data;
     const service: DataServiceService = TestBed.get(DataServiceService);
     service.currentMessage.subscribe(message => _message = message);
@@ -15,7 +15,7 @@ describe('DataServiceService', () => {
     const applicationData = new Data();
     applicationData.areAllBorrowersTheSame = 'YES';
     applicationData.customerEligibleFor5YearsFixedOrMore = 'NO';
-    service.changeMessage(applicationData);
+    service.updateMessage(applicationData);
     expect(_message.areAllBorrowersTheSame).toEqual('YES');
     expect(_message.customerEligibleFor5YearsFixedOrMore).toEqual('NO');
   });

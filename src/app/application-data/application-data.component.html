@@ -1,3 +1,17 @@
-<div data-qa-page="application-data">
-   
-</div>
+<form [formGroup]="applicationDataForm" (ngSubmit)="onSubmit()">
+    <div data-qa-page="application-data" style="text-align: left;">
+        <ul data-qa="applicationTypes" style="list-style: none;">
+            <li *ngFor="let applicationType of applicationTypes()">
+                <label>
+                    <input formControlName="applicationType" type="radio" id="{{applicationType.getId()}}" name="applicationType"
+                        value="{{applicationType.getId()}}" />
+                    <span>{{applicationType.getValue()}}</span>
+                </label>
+
+            </li>
+        </ul>
+
+        <button id= "submit" type="submit" [disabled]="!applicationDataForm.valid">Submit</button>
+    </div>
+  
+</form>

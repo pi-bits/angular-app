@@ -26,8 +26,7 @@ export class WelcomeComponent implements OnInit {
       const applicattionData = new Data();
       applicattionData.areAllBorrowersTheSame = 'YES';
       applicattionData.customerEligibleFor5YearsFixedOrMore = 'NO';
-      this.dataService.changeMessage(applicattionData);
-      console.log(applicattionData);
+      this.dataService.updateMessage(applicattionData);
       this.router.navigate(['/application-data']);
     }
   }

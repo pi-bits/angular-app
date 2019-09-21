@@ -38,7 +38,7 @@ describe('WelcomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('form invalid when empty', () => {
+  it('form invalid when empty', () => {
     expect(component.form.valid).toBeFalsy();
   });
 
@@ -77,7 +77,7 @@ describe('WelcomeComponent', () => {
     expect(errors['pattern']).toBeTruthy();
   });
 
-  fit('Should Submit the form', () => {
+  it('Should Submit the form', () => {
     const caseId = component.form.controls['caseId'];
     caseId.setValue('1234567890');
     component.submit();

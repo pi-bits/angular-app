@@ -9,7 +9,7 @@ export class DataServiceService {
   private messageSource = new BehaviorSubject<Data>(new Data);
   currentMessage = this.messageSource.asObservable();
 
-  changeMessage(message: Data) {
+  updateMessage(message: Data) {
     this.messageSource.next(message);
   }
   constructor() { }
