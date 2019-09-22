@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ApplicationDataComponent } from './application-data.component';
 import { ApplicationType } from '../model/applicationType';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 
 describe('ApplicationDataComponent', () => {
   let component: ApplicationDataComponent;
@@ -54,7 +55,7 @@ describe('ApplicationDataComponent', () => {
     });
   });
 
-  fit('should submit valid application data', () => {
+  it('should submit valid application data', () => {
 
     const nativeElement = fixture.debugElement.nativeElement;
     const applicationType: HTMLInputElement = nativeElement.querySelector('#FTB');
@@ -71,7 +72,7 @@ describe('ApplicationDataComponent', () => {
   })
 
 
-  fit('should not submit valid application data', () => {
+  it('should not submit valid application data', () => {
     const nativeElement = fixture.debugElement.nativeElement;
     fixture.detectChanges();
     nativeElement.querySelector('#submit').click();
@@ -79,6 +80,41 @@ describe('ApplicationDataComponent', () => {
 
   })
 
+  fit('should show like for questions', () => {
+    const nativeElement = fixture.debugElement.nativeElement;
+    fixture.detectChanges();
+    const likeforlikeSection = nativeElement.querySelector('#likeforlikeSection');
+    debugger;
+    expect(likeforlikeSection).toBeFalsy();
+
+    fixture.whenStable().then(() => {
+      const applicationType: HTMLInputElement = nativeElement.querySelector('#REMO');
+      applicationType.click();
+
+      applicationType.dispatchEvent(new Event('change'));
+      fixture.detectChanges();
+      expect(nativeElement.querySelector('#likeforlikeSection')).toBeTruthy();
+    });
+
+  })
+
+
+  it('should not show like for questions', () => {
+    const nativeElement = fixture.debugElement.nativeElement;
+    fixture.detectChanges();
+    const likeforlikeSection = nativeElement.querySelector('#likeforlikeSection');
+    expect(likeforlikeSection).toBeFalsy();
+    const applicationType: HTMLInputElement = nativeElement.querySelector('#OTHER');
+    applicationType.click();
+    fixture.detectChanges();
+
+    fixture.whenStable().then(() => {
+      applicationType.dispatchEvent(new Event('change'));
+      fixture.detectChanges();
+      expect(nativeElement.querySelector('#likeforlikeSection')).toBeFalsy();
+    });
+
+  })
 
 
 });

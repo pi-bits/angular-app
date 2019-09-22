@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ApplicationType } from '../model/applicationType';
-import { ApplicationData } from '../model/applicationData';
+
 
 @Component({
   selector: 'app-application-data',
@@ -9,9 +9,10 @@ import { ApplicationData } from '../model/applicationData';
   styleUrls: ['./application-data.component.css']
 })
 export class ApplicationDataComponent implements OnInit {
-  applicationDataForm: FormGroup;
-  applicationData: ApplicationData;
-  
+  public applicationDataForm: FormGroup;
+  public isRemoApplicationType:boolean = false;
+  public applicationTypeInput;  
+
 
   applicationTypes(): ApplicationType[] {
     return [
@@ -26,14 +27,26 @@ export class ApplicationDataComponent implements OnInit {
 
   constructor(private _fb: FormBuilder) {
     this.applicationDataForm = this._fb.group({
-      applicationType:  new FormControl('',[Validators.required],)
+      applicationTypeInput: ['',Validators.required]
     })
   }
 
   ngOnInit() {
-   
+
   }
-  onSubmit(){
+  onSubmit() {
     console.warn(this.applicationDataForm.value);
   }
+
+  public applicationTypeChangeHandler(event:any) {
+
+      let selectedApplicationType = this.applicationTypes().find((applicationType: ApplicationType) => {
+        return applicationType.getId() === event.target.value;
+      });
+      this.isRemoApplicationType = selectedApplicationType.getId() === 'REMO';
+
+
+  }
+
+
 }

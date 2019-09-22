@@ -1,17 +1,56 @@
-<form [formGroup]="applicationDataForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="applicationDataForm" (ngSubmit)="onSubmit()" novalidate>
     <div data-qa-page="application-data" style="text-align: left;">
-        <ul data-qa="applicationTypes" style="list-style: none;">
+        <!-- <ul data-qa="applicationTypes" style="list-style: none;">
             <li *ngFor="let applicationType of applicationTypes()">
                 <label>
-                    <input formControlName="applicationType" type="radio" id="{{applicationType.getId()}}" name="applicationType"
-                        value="{{applicationType.getId()}}" />
+                    <input type="text"  
+                    id="{{applicationType.getId()}}"
+                    formControlName="applicationTypeInput" 
+                   
+                    value="{{applicationType.getId()}}" />
                     <span>{{applicationType.getValue()}}</span>
                 </label>
-
             </li>
-        </ul>
+        </ul> -->
+        <div>
+            <label>
+                <input type="radio" id="REMO" formControlName="applicationTypeInput" value="REMO"
+                    (change)="applicationTypeChangeHandler($event)" />
+                <span>Remortgages</span>
+            </label>
+        </div>
 
-        <button id= "submit" type="submit" [disabled]="!applicationDataForm.valid">Submit</button>
+        <div>
+            <label>
+                <input type="radio" id="FTB" formControlName="applicationTypeInput" value="FTB"
+                    (change)="applicationTypeChangeHandler($event)" />
+                <span>First Time Buyer</span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <input type="radio" id="FTB" formControlName="applicationTypeInput" value="SWITCHER"
+                    (change)="applicationTypeChangeHandler($event)" />
+                <span>Switcher</span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="radio" id="FTB" formControlName="applicationTypeInput" value="OTHER"
+                    (change)="applicationTypeChangeHandler($event)" />
+                <span>Other application types</span>
+            </label>
+
+        </div>
+
+        <button id="submit" type="submit" [disabled]="!applicationDataForm.valid">Submit</button>
+
     </div>
-  
+
+
+    <div id="likeforlikeSection" *ngIf="isRemoApplicationType">
+        <h3>like for like Questions</h3>
+    </div>
+
 </form>
