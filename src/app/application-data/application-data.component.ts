@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ApplicationType } from '../model/applicationType';
+import { PersistenceService } from '../persistence.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class ApplicationDataComponent implements OnInit {
   }
 
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder , private _persistenceService: PersistenceService) {
     this.applicationDataForm = this._fb.group({
       applicationTypeInput: ['',Validators.required]
     })
@@ -36,6 +37,8 @@ export class ApplicationDataComponent implements OnInit {
   }
   onSubmit() {
     console.warn(this.applicationDataForm.value);
+    
+    this._persistenceService.getAll();
   }
 
   public applicationTypeChangeHandler(event:any) {
