@@ -1,17 +1,15 @@
 <form [formGroup]="applicationDataForm" (ngSubmit)="onSubmit()" novalidate>
     <div data-qa-page="application-data" style="text-align: left;">
-        <!-- <ul data-qa="applicationTypes" style="list-style: none;">
+
+        <!-- <ul style="list-style: none;">
             <li *ngFor="let applicationType of applicationTypes()">
                 <label>
-                    <input type="text"  
-                    id="{{applicationType.getId()}}"
-                    formControlName="applicationTypeInput" 
-                   
-                    value="{{applicationType.getId()}}" />
+                    <input type="radio"  (change)="applicationTypeChangeHandler($event)"  formControlName='applicationTypeInput' [value]="applicationType.getId()">
                     <span>{{applicationType.getValue()}}</span>
                 </label>
             </li>
         </ul> -->
+
         <div>
             <label>
                 <input type="radio" id="REMO" formControlName="applicationTypeInput" value="REMO"
@@ -44,12 +42,13 @@
 
         </div>
 
+
         <button id="submit" type="submit" [disabled]="!applicationDataForm.valid">Submit</button>
 
     </div>
 
 
-    <div id="likeforlikeSection" *ngIf="isRemoApplicationType">
+    <div id="likeforlikeSection" *ngIf="isRemoApplicationType" style="text-align: left;">
         <h3>like for like Questions</h3>
     </div>
 

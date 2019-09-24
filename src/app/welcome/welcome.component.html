@@ -1,14 +1,15 @@
-<div data-qa-page="welcome-page">
+<div data-qa-page="welcome-page"style="text-align: left;">
     <form [formGroup]="form" (ngSubmit)='submit()'>
-        <div class="formGroup">
+        <div class="formGroup" >
                 <label>
                         <span>Enter 10 digit case ID</span>
                         <input class="searchInput" formControlName="caseId" type="text" id="caseSearch" data-qa="caseSearch"
                             name="caseSearch" required minlength="1" maxlength="10" size="10">
                     </label>
+                    <input class = "button" type="submit" data-qa="submit" value="Search">
         </div>
        
 
-        <input type="submit" data-qa="submit" value="Search">
+       
     </form>
 </div>
