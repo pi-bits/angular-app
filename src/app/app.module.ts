@@ -12,7 +12,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PersistenceService } from './persistence.service';
-import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from './services/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
   providers: [
     DataServiceService,
     PersistenceService,
-    HttpClient],
+    HttpClient,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
