@@ -7,7 +7,7 @@ describe('Search Case', () => {
     page = new WelcomePage();
   });
 
-  fit('should search for a case and navigate to application data', () => {
+  it('should search for a case and navigate to application data', () => {
     page.navigateTo();
     expect(page.getTitle('welcome-page').isPresent()).toBe(true);
     page.inputCase('1234567890');
