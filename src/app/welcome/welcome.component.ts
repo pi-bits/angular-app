@@ -14,7 +14,7 @@ import { ApplicationData } from '../model/applicationData';
 export class WelcomeComponent implements OnInit {
   public form: FormGroup;
   public applicationData: ApplicationData;
-
+  public loading=false;
   constructor(private fb: FormBuilder, private router: Router, private dataService: DataServiceService, private caseSearch: CaseSearchService) {
   }
 
@@ -25,7 +25,9 @@ export class WelcomeComponent implements OnInit {
   }
 
   submit() {
+
     if (this.form.valid) {
+      this.loading=true;
       const applicattionData = new Data();
       applicattionData.areAllBorrowersTheSame = 'YES';
       applicattionData.customerEligibleFor5YearsFixedOrMore = 'NO';

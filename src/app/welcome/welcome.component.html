@@ -6,7 +6,7 @@
                         <input class="searchInput" formControlName="caseId" type="text" id="caseSearch" data-qa="caseSearch"
                             name="caseSearch" required minlength="1" maxlength="10" size="10">
                     </label>
-                    <input class = "button" type="submit" data-qa="submit" value="Search">
+                    <input  [disabled]="loading" class = "btn btn-lg btn-primary" type="submit" data-qa="submit" value="Search">
         </div>
        
 
