@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { DataServiceService } from '../data-service.service';
 import { Data } from '../model/data';
+import { CaseSearchService } from '../services/case-search.service';
+import { ApplicationData } from '../model/applicationData';
 
 @Component({
   selector: 'app-welcome',
@@ -11,8 +13,9 @@ import { Data } from '../model/data';
 })
 export class WelcomeComponent implements OnInit {
   public form: FormGroup;
+  public applicationData: ApplicationData;
 
-  constructor(private fb: FormBuilder, private router: Router, private dataService: DataServiceService) {
+  constructor(private fb: FormBuilder, private router: Router, private dataService: DataServiceService, private caseSearch: CaseSearchService) {
   }
 
   ngOnInit() {
@@ -27,7 +30,13 @@ export class WelcomeComponent implements OnInit {
       applicattionData.areAllBorrowersTheSame = 'YES';
       applicattionData.customerEligibleFor5YearsFixedOrMore = 'NO';
       this.dataService.updateMessage(applicattionData);
-      this.router.navigate(['/application-data']);
+     
+      this.caseSearch.search(this.form.controls['caseId'].value).subscribe((val)=>{
+       this.applicationData=val;
+        this.router.navigate(['/application-data']);
+     });
+
+     
     }
   }
 
