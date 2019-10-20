@@ -7,20 +7,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PersistenceService {
 
-  url = 'http://localhost:3000/application';
+  url = 'http://localhost:3000/application/1';
 
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<any> {
    return this.http.get(this.url);
-    // const postData = {
-    //   "id": 3,
-    //   "age": 16,
-    //   "name": "Andy"
-    // }
-    // this.http.post(this.url,postData).subscribe((data) => {
-    //   // console.log(data);
-    //   return data;
-    // });
   }
 }
