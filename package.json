@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href /ui/ --deploy-url /ui/",
+    "build": "ng build --prod",
+    "build-deploy": "ng build --prod --base-href /ui/ --deploy-url /ui/",
+    "build-base-url": "ng build --prod --base-href /ui/ ",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e --webdriver-update=false",

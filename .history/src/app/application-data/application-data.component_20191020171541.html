@@ -1,0 +1,43 @@
+<div class="justify-content-center row mt-5" data-qa-page="welcome-page">
+  <form class="col-8" [formGroup]="applicationDataForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <div class="form-group" data-qa-page="application-data">
+      <div class="col-12 card p-0">
+        <div class="card-header">
+          <h3 class="card-title">This my title</h3>
+        </div>
+        <div class="card-body">
+          <h5 class="mb-4">Test Test Blalblalala</h5>
+
+          <div class="custom-control custom-radio">
+            <input class="custom-control-input" type="radio" id="REMO" formControlName="applicationTypeInput"
+                   value="REMO" (change)="applicationTypeChangeHandler($event)"/>
+            <label class="custom-control-label" for="REMO"> Remortgages</label>
+            <p>the message: {{ data.message }}</p>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input class="custom-control-input" type="radio" id="FTB" formControlName="applicationTypeInput" value="FTB"
+                   (change)="applicationTypeChangeHandler($event)"/>
+            <label class="custom-control-label" for="FTB">First time buyer</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input class="custom-control-input" type="radio" id="SWITCHER" formControlName="applicationTypeInput"
+                   value="SWITCHER" (change)="applicationTypeChangeHandler($event)"/>
+            <label class="custom-control-label" for="SWITCHER">Switcher</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input class="custom-control-input" type="radio" id="OTHER" formControlName="applicationTypeInput"
+                   value="OTHER" (change)="applicationTypeChangeHandler($event)"/>
+            <label class="custom-control-label" for="OTHER">Other Blabla</label>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+   
+  </form>
+</div>

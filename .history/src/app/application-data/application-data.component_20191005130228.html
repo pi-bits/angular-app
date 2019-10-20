@@ -1,0 +1,90 @@
+<div class="justify-content-center row mt-5" data-qa-page="welcome-page">
+  <form class="col-8" [formGroup]="applicationDataForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <div class="form-group" data-qa-page="application-data">
+      <div class="col-12 card p-0">
+        <div class="card-header">
+          <h3 class="card-title">This my title</h3>
+        </div>
+        <div class="card-body">
+          <h5 class="mb-4">Test Test Blalblalala</h5>
+
+          <div class="custom-control custom-radio">
+            <input class="custom-control-input" type="radio" id="REMO" formControlName="applicationTypeInput"
+                   value="REMO" (change)="applicationTypeChangeHandler($event)"/>
+            <label class="custom-control-label" for="REMO"> Remortgages</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input class="custom-control-input" type="radio" id="FTB" formControlName="applicationTypeInput" value="FTB"
+                   (change)="applicationTypeChangeHandler($event)"/>
+            <label class="custom-control-label" for="FTB">First time buyer</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input class="custom-control-input" type="radio" id="SWITCHER" formControlName="applicationTypeInput"
+                   value="SWITCHER" (change)="applicationTypeChangeHandler($event)"/>
+            <label class="custom-control-label" for="SWITCHER">Switcher</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input class="custom-control-input" type="radio" id="OTHER" formControlName="applicationTypeInput"
+                   value="OTHER" (change)="applicationTypeChangeHandler($event)"/>
+            <label class="custom-control-label" for="OTHER">Other Blabla</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group" *ngIf="isRemoApplicationType" data-qa-page="like for like Questions">
+      <div class="col-12 card p-0">
+        <div class="card-header">
+          <h3 class="card-title">Like For Like Questions</h3>
+        </div>
+        <div class="card-body">
+          <h5 class="mb-4">dask.djasl;kdj;salkd;askdkas ;lska;lkd;as</h5>
+
+          <div class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-light mr-2">
+              <input type="radio" name="YES" id="option1" autocomplete="off"> YES
+            </label>
+            <label class="btn btn-light mr-2">
+              <input type="radio" name="NO" id="option2" autocomplete="off"> NO
+            </label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="isRemoApplicationType" data-qa-page="like for like Questions">
+      <div class="col-12 card p-0">
+        <div class="card-header">
+          <h3 class="card-title">5 years question</h3>
+        </div>
+        <div class="card-body">
+          <h5 class="mb-4">HOASLjdsajdl jlkdsalj dlasjld </h5>
+
+          <div class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-light mr-2">
+              <input type="radio" name="option_YES" id="option_YES" autocomplete="off"> YES
+            </label>
+            <label class="btn btn-light mr-2">
+              <input type="radio" name="option_NO" id="option_NO" autocomplete="off"> NO
+            </label>
+            <label class="btn btn-light mr-2">
+              <input type="radio" name="Maybe" id="option_MAYBE" autocomplete="off"> MAYBEEEE
+            </label>
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group text-right">
+        <button class="btn btn-primary" id="submit" type="submit" [disabled]="!applicationDataForm.valid">Submit</button>
+      </div>
+    </div>
+
+   
+  </form>
+</div>
