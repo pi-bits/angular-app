@@ -27,7 +27,8 @@
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.js",
+              "./node_modules/moment/min/moment.min.js"
             ]
           },
           "configurations": {
@@ -77,7 +78,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "./node_modules/moment/min/moment.min.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

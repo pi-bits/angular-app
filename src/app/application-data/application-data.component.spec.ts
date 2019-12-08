@@ -80,7 +80,7 @@ describe('ApplicationDataComponent', () => {
 
   })
 
-  it('should show like for questions', () => {}
+  it('should show like for questions', () => {
     const nativeElement = fixture.debugElement.nativeElement;
     fixture.detectChanges();
     const likeforlikeSection = nativeElement.querySelector('#likeforlikeSection');
@@ -95,8 +95,7 @@ describe('ApplicationDataComponent', () => {
       fixture.detectChanges();
       expect(nativeElement.querySelector('#likeforlikeSection')).toBeTruthy();
     });
-
-  })
+  });
 
 
   it('should not show like for questions', () => {
