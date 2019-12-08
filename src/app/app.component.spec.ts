@@ -26,11 +26,11 @@ describe('AppComponent', () => {
   fit('should get now from mock date', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    console.log();
+
     var today = moment('2015-10-19').toDate()
     jasmine.clock().mockDate(today);
     expect(moment().valueOf()).toEqual(today.valueOf());
-    console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+    app.update();
   });
 
 
